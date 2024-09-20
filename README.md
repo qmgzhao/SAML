@@ -15,8 +15,8 @@ SAML method is divided into three steps: expert initialisation, pretraining, and
 Each group of experts has initialised with the LoRA parameters pretrained on a single speaker data from the train-clean-100 set.
 
 ## 1.Pretraining
-For SAML pretraining, the train-clean-100 set was used which does not have any speaker overlap with the selected speakers.
+For SAML pretraining, the train-clean-100 set is used which does not have any speaker overlap with the selected speakers.
 
 ## 2.Adaptation
 SAML-based speaker adaptation is performed on speaker-specific data.
-The specific information of the speaker refers to [`whisper/data/train_clean_360_10spk`](https://github.com/qmgzhao/SAML/tree/main/whisper/data/train_clean_360_10spk).
+The specific information of speakers refers to [`whisper/data/train_clean_360_10spk`](https://github.com/qmgzhao/SAML/tree/main/whisper/data/train_clean_360_10spk).
