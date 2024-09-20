@@ -1,5 +1,5 @@
 # SAML
-SAML: Speaker Adaptive Mixture of LoRA Experts for End-to-End ASR [Paper](https://arxiv.org/abs/2406.19706)
+SAML: Speaker Adaptive Mixture of LoRA Experts for End-to-End ASR [(Paper)](https://arxiv.org/abs/2406.19706)
 
 # Environment
 python: 3.9
