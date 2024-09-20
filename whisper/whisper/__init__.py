@@ -158,16 +158,16 @@ def load_moe_model(loadfrom, is_pretrain, lora_r, lora_alpha, lora_dropout, temp
     model.load_state_dict(state_dict, strict=False)
 
     # 2.2 load moe-lora state_dict
-    # if not is_pretrain:
-    #     layers_list = moe_layers_list(spk_list, moe.r, mode=0)
+    if not is_pretrain:
+        layers_list = moe_layers_list(spk_list, moe.r, mode=0)
 
-    #     moe_state_dict = OrderedDict()
-    #     for name, module in model.named_modules():
-    #         if isinstance(module, lora.MoELinear):
-    #             for idx, spk in enumerate(spk_list):
-    #                 moe_state_dict[f"{name}.lora_A_list.{idx}"] = layers_list[f"{name}.lora_A"][spk]
-    #                 moe_state_dict[f"{name}.lora_B_list.{idx}"] = layers_list[f"{name}.lora_B"][spk]
+        moe_state_dict = OrderedDict()
+        for name, module in model.named_modules():
+            if isinstance(module, lora.MoELinear):
+                for idx, spk in enumerate(spk_list):
+                    moe_state_dict[f"{name}.lora_A_list.{idx}"] = layers_list[f"{name}.lora_A"][spk]
+                    moe_state_dict[f"{name}.lora_B_list.{idx}"] = layers_list[f"{name}.lora_B"][spk]
                 
-    #     model.load_state_dict(moe_state_dict, strict=False)
+        model.load_state_dict(moe_state_dict, strict=False)
 
     return model.to(device)
